@@ -1546,6 +1546,9 @@ MountAllResult fs_mgr_mount_all(Fstab* fstab, int mount_mode) {
                     attempted_entry.fs_options.c_str());
                 encryptable = FS_MGR_MNTALL_DEV_NEEDS_RECOVERY_WIPE_PROMPT;
             } else {
+                if (current_entry.mount_point == "/data") {
+                    userdata_mounted = true;
+                }
                 encryptable = FS_MGR_MNTALL_DEV_IS_METADATA_ENCRYPTED;
             }
             continue;
