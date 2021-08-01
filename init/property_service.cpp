@@ -94,10 +94,6 @@ namespace init {
 
 static bool persistent_properties_loaded = false;
 
-#ifdef TARGET_INIT_VENDOR_LIB
-extern void vendor_load_properties(void);
-#endif
-
 static int property_set_fd = -1;
 static int from_init_socket = -1;
 static int init_socket = -1;
@@ -1242,12 +1238,6 @@ static void HandleInitSocket() {
             }
             InitPropertySet("ro.persistent_properties.ready", "true");
             persistent_properties_loaded = true;
-
-#ifdef TARGET_INIT_VENDOR_LIB
-            /* vendor-specific properties
-            */
-            vendor_load_properties();
-#endif
             break;
         }
         default:
