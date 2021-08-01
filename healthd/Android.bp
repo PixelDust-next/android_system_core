@@ -174,14 +174,6 @@ cc_library_static {
         "healthd_mode_charger.cpp",
         "AnimationParser.cpp",
     ],
-
-    product_variables: {
-        omnirom: {
-            healthd_enable_tricolor_led: {
-                cflags: ["-DHEALTHD_ENABLE_TRICOLOR_LED"],
-            },
-        },
-    },
 }
 
 cc_defaults {
